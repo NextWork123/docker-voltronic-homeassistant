@@ -43,10 +43,10 @@ By remotely setting values via MQTT you can implement many more complex forms of
 
 The program is designed to be run in a Docker Container, and can be deployed on a lightweight SBC next to your Inverter (i.e. an Orange Pi Zero running Arabian), and read data via the RS232 or USB ports on the back of the Inverter.
 
-![Example Lovelace Dashboard](images/lovelace-dashboard.jpg "Example Lovelace Dashboard")
+![Example Lovelace Dashboard](https://github.com/ned-kelly/docker-voltronic-homeassistant/raw/master/images/lovelace-dashboard.jpg "Example Lovelace Dashboard")
 _Example #1: My "Lovelace" dashboard using data collected from the Inverter & the ability to change modes/configuration via MQTT._
 
-![Example Lovelace Dashboard](images/grafana-example.jpg "Example Grafana Dashboard")
+![Example Lovelace Dashboard](https://github.com/ned-kelly/docker-voltronic-homeassistant/raw/master/images/grafana-example.jpg "Example Grafana Dashboard")
 _Example #2: Grafana summary allowing more detailed analysis of data collected, and the ability to 'deep-dive' historical data._
 
 
@@ -95,7 +95,7 @@ Providing you have setup [MQTT](https://www.home-assistant.io/components/mqtt/) 
 
 From here you can setup [Graphs](https://www.home-assistant.io/lovelace/history-graph/) to display sensor data, and optionally change state of the inverter by "[publishing](https://www.home-assistant.io/docs/mqtt/service/)" a string to the inverter's primary topic like so:
 
-![Example, Changing the Charge Priority](images/mqtt-publish-packet.png "Example, Changing the Charge Priority")
+![Example, Changing the Charge Priority](https://github.com/ned-kelly/docker-voltronic-homeassistant/raw/master/images/mqtt-publish-packet.png "Example, Changing the Charge Priority")
 _Example: Changing the Charge Priority of the Inverter_
 
 **COMMON COMMANDS THAT CAN BE SENT TO THE INVERTER**
@@ -107,11 +107,13 @@ _(see [protocol manual](http://forums.aeva.asn.au/uploads/293/HS_MS_MSX_RS232_Pr
 ```
 DESCRIPTION:                PAYLOAD:  OPTIONS:
 ----------------------------------------------------------------
-Set output source priority  POP00     (Utility first)
+Set output source priority
+                            POP00     (Utility first)
                             POP01     (Solar first)
                             POP02     (SBU)
 
-Set charger priority        PCP00     (Utility first)
+Set charger priority
+                            PCP00     (Utility first)
                             PCP01     (Solar first)
                             PCP02     (Solar and utility)
                             PCP03     (Solar only)
@@ -122,7 +124,20 @@ Set the Charge/Discharge Levels & Cutoff
                             PBFT27.1  (Set the 'float voltage' to 27.1v)
                             PCVV28.1  (Set the 'charge voltage' to 28.1v)
 
-Set other commands          PEa / PDa (Enable/disable buzzer)
+Set the Max Charging current (with the solar)
+                           MCHGC010 (Set to 10A)
+                           MCHGC020 (Set to 20A)
+                           MCHGC030 (Set to 30A)
+                           MCHGC040 (Set to 40A)
+                           MCHGC050 (Set to 50A)
+                           MCHGC060 (Set to 60A)
+                           MCHGC070 (Set to 70A)
+                           MCHGC080 (Set to 80A)
+                           MCHGC090 (Set to 90A)
+                           MCHGC100 (Set to 100A)   
+
+Set other commands
+                            PEa / PDa (Enable/disable buzzer)
                             PEb / PDb (Enable/disable overload bypass)
                             PEj / PDj (Enable/disable power saving)
                             PEu / PDu (Enable/disable overload restart);
