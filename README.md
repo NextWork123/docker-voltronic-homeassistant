@@ -124,7 +124,7 @@ Set the Charge/Discharge Levels & Cutoff
                             PBFT27.1  (Set the 'float voltage' to 27.1v)
                             PCVV28.1  (Set the 'charge voltage' to 28.1v)
 
-Set the Max Charging current (with the solar)
+Set the Max Charging current (With the charger priority)
                            MCHGC010 (Set to 10A)
                            MCHGC020 (Set to 20A)
                            MCHGC030 (Set to 30A)
@@ -134,7 +134,7 @@ Set the Max Charging current (with the solar)
                            MCHGC070 (Set to 70A)
                            MCHGC080 (Set to 80A)
                            MCHGC090 (Set to 90A)
-                           MCHGC100 (Set to 100A)   
+                           MCHGC100 (Set to 100A)
 
 Set other commands
                             PEa / PDa (Enable/disable buzzer)
